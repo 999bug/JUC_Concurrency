@@ -17,8 +17,6 @@ public class FixedThreadPoolTest {
 }
 
 class Task implements Runnable {
-
-
     @Override
     public void run() {
         try {

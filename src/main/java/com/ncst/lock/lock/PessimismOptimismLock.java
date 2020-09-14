@@ -1,9 +1,10 @@
-package src.lock.lock;
+package com.ncst.lock.lock;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+
 /**
- * 描述：     TODO
+ * @author hp
  */
 public class PessimismOptimismLock {
 

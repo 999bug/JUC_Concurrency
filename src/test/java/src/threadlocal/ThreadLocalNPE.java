@@ -17,7 +17,9 @@ public class ThreadLocalNPE {
 
     public static void main(String[] args) {
         ThreadLocalNPE threadLocalNPE = new ThreadLocalNPE();
+
         System.out.println(threadLocalNPE.get());
+
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
