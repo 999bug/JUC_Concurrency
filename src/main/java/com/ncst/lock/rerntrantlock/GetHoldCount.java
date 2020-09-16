@@ -1,4 +1,4 @@
-package src.lock.reentrantlock;
+package com.ncst.lock.rerntrantlock;
 
 import java.util.concurrent.locks.ReentrantLock;
 

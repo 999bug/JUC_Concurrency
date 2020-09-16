@@ -12,7 +12,7 @@ public class SpinLock {
     public void lock() {
         Thread current = Thread.currentThread();
         while (!sign.compareAndSet(null, current)) {
-            System.out.println("自旋获取失败，再次尝试");
+            System.out.println(current.getName()+"自旋获取失败，再次尝试");
         }
     }
 
@@ -23,20 +23,17 @@ public class SpinLock {
 
     public static void main(String[] args) {
         SpinLock spinLock = new SpinLock();
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName() + "开始尝试获取自旋锁");
-                spinLock.lock();
-                System.out.println(Thread.currentThread().getName() + "获取到了自旋锁");
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    spinLock.unlock();
-                    System.out.println(Thread.currentThread().getName() + "释放了自旋锁");
-                }
+        Runnable runnable = () -> {
+            System.out.println(Thread.currentThread().getName() + "开始尝试获取自旋锁");
+            spinLock.lock();
+            System.out.println(Thread.currentThread().getName() + "获取到了自旋锁");
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                spinLock.unlock();
+                System.out.println(Thread.currentThread().getName() + "释放了自旋锁");
             }
         };
         Thread thread1 = new Thread(runnable);

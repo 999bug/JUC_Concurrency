@@ -4,6 +4,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 描述：     演示非公平和公平的ReentrantReadWriteLock的策略
+ *
+ *  非公平锁中 1.写锁随时插队
+ *            2.读锁在队列头是写锁时，排在写锁后面
  */
 public class NonfairBargeDemo {
 

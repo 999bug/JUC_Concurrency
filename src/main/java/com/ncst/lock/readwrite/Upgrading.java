@@ -1,6 +1,5 @@
-package src.lock.readwrite;
+package com.ncst.lock.readwrite;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
